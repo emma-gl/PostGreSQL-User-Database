@@ -19,9 +19,12 @@
   "homepage": "https://github.com/emma-gl/Flutter#readme",
   "dependencies": {
     "body-parser": "^1.20.1",
+    "config": "^3.3.9",
     "dotenv": "^16.0.3",
     "express": "^4.18.2",
     "pg": "^8.8.0",
-    "pg-hstore": "^2.3.4"
+    "pg-hstore": "^2.3.4",
+    "pool": "^0.4.1",
+    "tls": "^0.0.1"
   }
 }

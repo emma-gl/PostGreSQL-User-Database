@@ -56,6 +56,17 @@ async function update_user(){
 //update_user();
 view_users();
 
+async function view_matches(){
+    var query = await pool.query("SELECT * FROM swipes");
+    console.log(query);
+}
+
+async function add_matches(){
+    //ask for user information then add it 
+    var query = await pool.query("INSERT INTO swipes (id, swipe_yes, swipe_no) VALUES (5,0,1)");
+    console.log(query);
+}
+
 
 // Log in API options
 app.post('/api/auth/signup', (req, res, next) =>{
