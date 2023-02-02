@@ -24,6 +24,7 @@ pool.connect();
 console.log("Connected")
 
 async function view_users(){
+    //display users
     var query = await pool.query("SELECT * FROM users");
     console.log(query);
 }
@@ -38,13 +39,13 @@ async function add_users(){
 }
 
 async function delete_user(){
-    //ask for user information then add it 
+    //delete user that matches given value
     var query = await pool.query("DELETE FROM users WHERE first_name='Jane'");
     console.log(query);
 }
 
 async function update_user(){
-    //ask for user information then add it 
+    //update user that matches given value
     var query = await pool.query("UPDATE users SET city = 'New York City' WHERE first_name = 'John'");
     console.log(query);
 }
@@ -98,43 +99,49 @@ app.get('/api/test/admin', (req, res, next) =>{
    entire body portion of an incoming 
    request stream and exposes it on req.body 
 */
-// const bodyParser = require('body-parser');
-// app.use(bodyParser.json())
-// app.use(bodyParser.urlencoded({ extended: false }));
+try{
+    const bodyParser = require('body-parser');
+    app.use(bodyParser.json())
+    app.use(bodyParser.urlencoded({ extended: false }));
+    
+    
+    pool.connect((err, client, release) => {
+        if (err) {
+            return console.error(
+                'Error acquiring client', err.stack)
+        }
+        client.query('SELECT NOW()', (err, result) => {
+            release()
+            if (err) {
+                return console.error(
+                    'Error executing query', err.stack)
+            }
+            console.log("Connected to Database !")
+            const res = pool.query('SELECT * FROM users')
+            console.log(res)
+        })
+    })
+    
+    // app.get('/testdata', (req, res, next) => {
+    //     console.log("TEST DATA :");
+    //     pool.query('Select * from test')
+    //         .then(testData => {
+    //             console.log(testData);
+    //             res.send(testData.rows);
+    //         })
+    // })
+}
+catch{
+
+
   
-  
-// pool.connect((err, client, release) => {
-//     if (err) {
-//         return console.error(
-//             'Error acquiring client', err.stack)
-//     }
-//     client.query('SELECT NOW()', (err, result) => {
-//         release()
-//         if (err) {
-//             return console.error(
-//                 'Error executing query', err.stack)
-//         }
-//         console.log("Connected to Database !")
-//         const res = pool.query('SELECT * FROM users')
-//         console.log(res)
-//     })
-// })
-  
-// // app.get('/testdata', (req, res, next) => {
-// //     console.log("TEST DATA :");
-// //     pool.query('Select * from test')
-// //         .then(testData => {
-// //             console.log(testData);
-// //             res.send(testData.rows);
-// //         })
-// // })
-  
- // Require the Routes API  
- // Create a Server and run it on the port 3000
- const PORT = process.env.PORT || 3000;
- const server = app.listen(PORT, function () {
-    console.log(`Server is running on ${PORT}.`)
-     let host = server.address().address
-     let port = server.address().port
-     // Starting the Server at the port 3000
-})
+    // Require the Routes API  
+    // Create a Server and run it on the port 3000
+    const PORT = process.env.PORT || 3000;
+    const server = app.listen(PORT, function () {
+        console.log(`Server is running on ${PORT}.`)
+        let host = server.address().address
+        let port = server.address().port
+        // Starting the Server at the port 3000
+    })
+}

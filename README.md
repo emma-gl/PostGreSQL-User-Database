@@ -5,9 +5,7 @@ The following software (specifically the .js file) performs a series of queries 
 
 I wrote this software to eventually integrate it with a webpage which takes in inputted data from a user and apply it to the database via the backend. So, this database will be acted upon by any user on the web.
 
-{Provide a link to your YouTube demonstration. It should be a 4-5 minute demo of the software running, a walkthrough of the code, and a view of how created the Relational Database.}
-
-[Software Demo Video](http://youtube.link.goes.here)
+[Software Demo Video](https://www.loom.com/share/4c63c391a90f43af8b9c3b0a039ab3e8)
 
 # Relational Database
 
@@ -47,7 +45,7 @@ Languages used:
 # Useful Websites
 
 - [Creating a REST API Backend using Node.js, Express and Postgres by GeeksForGeeks](https://www.geeksforgeeks.org/creating-a-rest-api-backend-using-node-js-express-and-postgres/)
-- [Node.js MySQL Create Database](https://www.w3schools.com/nodejs/nodejs_mysql_create_db.asp)
+- [Node.js MySQL Create Database by w3](https://www.w3schools.com/nodejs/nodejs_mysql_create_db.asp)
 
 # Future Work
 
