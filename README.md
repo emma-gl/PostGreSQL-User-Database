@@ -5,7 +5,6 @@ The following software (specifically the .js file) performs a series of queries 
 
 I wrote this software to eventually integrate it with a webpage which takes in inputted data from a user and apply it to the database via the backend. So, this database will be acted upon by any user on the web.
 
-[Software Demo Video](https://www.loom.com/share/4c63c391a90f43af8b9c3b0a039ab3e8)
 
 # Relational Database
 
